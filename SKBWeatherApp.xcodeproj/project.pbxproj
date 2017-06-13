@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DF0DE56CB7DB405E9582563 /* Pods_SKBWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7B2987C5EC71B5584EDEA1 /* Pods_SKBWeatherAppTests.framework */; };
+		933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */; };
+		933A8D271EEFA34D0051B3AC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8D261EEFA34D0051B3AC /* Colors.swift */; };
 		935DC2F41EEF662600BB5163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DC2F31EEF662600BB5163 /* AppDelegate.swift */; };
-		935DC2F61EEF662600BB5163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DC2F51EEF662600BB5163 /* ViewController.swift */; };
-		935DC2F91EEF662600BB5163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935DC2F71EEF662600BB5163 /* Main.storyboard */; };
 		935DC2FC1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 935DC2FA1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld */; };
 		935DC2FE1EEF662600BB5163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935DC2FD1EEF662600BB5163 /* Assets.xcassets */; };
 		935DC3011EEF662600BB5163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935DC2FF1EEF662600BB5163 /* LaunchScreen.storyboard */; };
 		935DC30C1EEF662600BB5163 /* SKBWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DC30B1EEF662600BB5163 /* SKBWeatherAppTests.swift */; };
+		939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */; };
+		939B68021EEF7272006980C1 /* MainAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68011EEF7272006980C1 /* MainAppService.swift */; };
+		939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68061EEF7302006980C1 /* WeatherViewController.swift */; };
+		939B68091EEF7302006980C1 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939B68071EEF7302006980C1 /* WeatherViewController.xib */; };
+		939B680B1EEF8304006980C1 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B680A1EEF8304006980C1 /* BackgroundView.swift */; };
+		A1D93F9A5F39038C3743DF55 /* Pods_SKBWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242D76A84EFC70603C082E62 /* Pods_SKBWeatherApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		242D76A84EFC70603C082E62 /* Pods_SKBWeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKBWeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24FB0AE7F00ABA7465408EDB /* Pods-SKBWeatherAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherAppTests/Pods-SKBWeatherAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C7B2987C5EC71B5584EDEA1 /* Pods_SKBWeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKBWeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIVIewExtensions.swift; path = Extensions/UIVIewExtensions.swift; sourceTree = "<group>"; };
+		933A8D261EEFA34D0051B3AC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		935DC2F01EEF662600BB5163 /* SKBWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKBWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		935DC2F31EEF662600BB5163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		935DC2F51EEF662600BB5163 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		935DC2F81EEF662600BB5163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		935DC2FB1EEF662600BB5163 /* SKBWeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SKBWeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		935DC2FD1EEF662600BB5163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		935DC3001EEF662600BB5163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +48,14 @@
 		935DC3071EEF662600BB5163 /* SKBWeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKBWeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		935DC30B1EEF662600BB5163 /* SKBWeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBWeatherAppTests.swift; sourceTree = "<group>"; };
 		935DC30D1EEF662600BB5163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceDispatcher.swift; path = Utility/ServiceDispatcher.swift; sourceTree = "<group>"; };
+		939B68011EEF7272006980C1 /* MainAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainAppService.swift; path = Services/MainAppService.swift; sourceTree = "<group>"; };
+		939B68061EEF7302006980C1 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = Controllers/WeatherViewController.swift; sourceTree = "<group>"; };
+		939B68071EEF7302006980C1 /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WeatherViewController.xib; path = Controllers/WeatherViewController.xib; sourceTree = "<group>"; };
+		939B680A1EEF8304006980C1 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = Views/BackgroundView.swift; sourceTree = "<group>"; };
+		A0F34DDE4634CC298D7C7816 /* Pods-SKBWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		A548128EB7D16D8304168EBF /* Pods-SKBWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D0E4C54466D72B25758C30A3 /* Pods-SKBWeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherAppTests/Pods-SKBWeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D93F9A5F39038C3743DF55 /* Pods_SKBWeatherApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +71,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF0DE56CB7DB405E9582563 /* Pods_SKBWeatherAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58CFBCD6678A520E95F5C74D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A548128EB7D16D8304168EBF /* Pods-SKBWeatherApp.debug.xcconfig */,
+				A0F34DDE4634CC298D7C7816 /* Pods-SKBWeatherApp.release.xcconfig */,
+				D0E4C54466D72B25758C30A3 /* Pods-SKBWeatherAppTests.debug.xcconfig */,
+				24FB0AE7F00ABA7465408EDB /* Pods-SKBWeatherAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		933A8D231EEF974A0051B3AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		935DC2E71EEF662500BB5163 = {
 			isa = PBXGroup;
 			children = (
 				935DC2F21EEF662600BB5163 /* SKBWeatherApp */,
 				935DC30A1EEF662600BB5163 /* SKBWeatherAppTests */,
 				935DC2F11EEF662600BB5163 /* Products */,
+				58CFBCD6678A520E95F5C74D /* Pods */,
+				98C5E8C68AE2AD30FC183606 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +120,13 @@
 		935DC2F21EEF662600BB5163 /* SKBWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				933A8D231EEF974A0051B3AC /* Extensions */,
+				939B68051EEF72E3006980C1 /* Views */,
+				939B68041EEF72DE006980C1 /* Models */,
+				939B68031EEF72D7006980C1 /* Controllers */,
+				939B68001EEF724F006980C1 /* Services */,
+				939B67FD1EEF71AC006980C1 /* Utility */,
 				935DC2F31EEF662600BB5163 /* AppDelegate.swift */,
-				935DC2F51EEF662600BB5163 /* ViewController.swift */,
-				935DC2F71EEF662600BB5163 /* Main.storyboard */,
 				935DC2FD1EEF662600BB5163 /* Assets.xcassets */,
 				935DC2FF1EEF662600BB5163 /* LaunchScreen.storyboard */,
 				935DC3021EEF662600BB5163 /* Info.plist */,
@@ -99,6 +144,56 @@
 			path = SKBWeatherAppTests;
 			sourceTree = "<group>";
 		};
+		939B67FD1EEF71AC006980C1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */,
+				933A8D261EEFA34D0051B3AC /* Colors.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		939B68001EEF724F006980C1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				939B68011EEF7272006980C1 /* MainAppService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		939B68031EEF72D7006980C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				939B68061EEF7302006980C1 /* WeatherViewController.swift */,
+				939B68071EEF7302006980C1 /* WeatherViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		939B68041EEF72DE006980C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		939B68051EEF72E3006980C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				939B680A1EEF8304006980C1 /* BackgroundView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		98C5E8C68AE2AD30FC183606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				242D76A84EFC70603C082E62 /* Pods_SKBWeatherApp.framework */,
+				8C7B2987C5EC71B5584EDEA1 /* Pods_SKBWeatherAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 935DC3101EEF662600BB5163 /* Build configuration list for PBXNativeTarget "SKBWeatherApp" */;
 			buildPhases = (
+				D8CD1DD761D90191C35E00C7 /* [CP] Check Pods Manifest.lock */,
 				935DC2EC1EEF662600BB5163 /* Sources */,
 				935DC2ED1EEF662600BB5163 /* Frameworks */,
 				935DC2EE1EEF662600BB5163 /* Resources */,
+				AC0E464D5ED8D03DFE61AFF7 /* [CP] Embed Pods Frameworks */,
+				F015B068EB066F6B6A7ED76C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 935DC3131EEF662600BB5163 /* Build configuration list for PBXNativeTarget "SKBWeatherAppTests" */;
 			buildPhases = (
+				41034F0358FBABE917039BC3 /* [CP] Check Pods Manifest.lock */,
 				935DC3031EEF662600BB5163 /* Sources */,
 				935DC3041EEF662600BB5163 /* Frameworks */,
 				935DC3051EEF662600BB5163 /* Resources */,
+				67DB93039D92220F2718A087 /* [CP] Embed Pods Frameworks */,
+				811BBAFA319E1150FF83B1A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,8 +284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				935DC3011EEF662600BB5163 /* LaunchScreen.storyboard in Resources */,
+				939B68091EEF7302006980C1 /* WeatherViewController.xib in Resources */,
 				935DC2FE1EEF662600BB5163 /* Assets.xcassets in Resources */,
-				935DC2F91EEF662600BB5163 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,13 +298,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41034F0358FBABE917039BC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		67DB93039D92220F2718A087 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKBWeatherAppTests/Pods-SKBWeatherAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		811BBAFA319E1150FF83B1A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKBWeatherAppTests/Pods-SKBWeatherAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC0E464D5ED8D03DFE61AFF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8CD1DD761D90191C35E00C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F015B068EB066F6B6A7ED76C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		935DC2EC1EEF662600BB5163 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935DC2F61EEF662600BB5163 /* ViewController.swift in Sources */,
+				939B680B1EEF8304006980C1 /* BackgroundView.swift in Sources */,
+				933A8D271EEFA34D0051B3AC /* Colors.swift in Sources */,
+				933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */,
 				935DC2FC1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld in Sources */,
+				939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */,
+				939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */,
+				939B68021EEF7272006980C1 /* MainAppService.swift in Sources */,
 				935DC2F41EEF662600BB5163 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,14 +426,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		935DC2F71EEF662600BB5163 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				935DC2F81EEF662600BB5163 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		935DC2FF1EEF662600BB5163 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,6 +532,7 @@
 		};
 		935DC3111EEF662600BB5163 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A548128EB7D16D8304168EBF /* Pods-SKBWeatherApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SKBWeatherApp/Info.plist;
@@ -353,6 +545,7 @@
 		};
 		935DC3121EEF662600BB5163 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0F34DDE4634CC298D7C7816 /* Pods-SKBWeatherApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SKBWeatherApp/Info.plist;
@@ -365,6 +558,7 @@
 		};
 		935DC3141EEF662600BB5163 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0E4C54466D72B25758C30A3 /* Pods-SKBWeatherAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -379,6 +573,7 @@
 		};
 		935DC3151EEF662600BB5163 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24FB0AE7F00ABA7465408EDB /* Pods-SKBWeatherAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -410,6 +605,7 @@
 				935DC3121EEF662600BB5163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		935DC3131EEF662600BB5163 /* Build configuration list for PBXNativeTarget "SKBWeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +614,7 @@
 				935DC3151EEF662600BB5163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
