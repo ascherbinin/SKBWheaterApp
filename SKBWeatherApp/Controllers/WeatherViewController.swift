@@ -34,7 +34,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         setupNavigationControllerController()
         
         
-        
+        stateController?.getLastWeather()
     }
 
     override func didReceiveMemoryWarning()

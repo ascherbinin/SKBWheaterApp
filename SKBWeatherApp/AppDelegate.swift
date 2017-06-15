@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let serviceDispatcher = ServiceDispatcher(services: [MainAppService()])
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        var appDir = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
+        print (appDir)
         serviceDispatcher.application(application, didFinishLaunchingWithOptions: launchOptions as [NSObject : AnyObject]?)
         return true
     }

@@ -10,6 +10,9 @@
 		3DF0DE56CB7DB405E9582563 /* Pods_SKBWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7B2987C5EC71B5584EDEA1 /* Pods_SKBWeatherAppTests.framework */; };
 		9316AF6C1EF20C8C00190CC0 /* WeatherStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316AF6B1EF20C8C00190CC0 /* WeatherStateController.swift */; };
 		9316AF6E1EF211CE00190CC0 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316AF6D1EF211CE00190CC0 /* URLs.swift */; };
+		9316AF7B1EF221BA00190CC0 /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316AF791EF221BA00190CC0 /* Weather+CoreDataClass.swift */; };
+		9316AF7C1EF221BA00190CC0 /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316AF7A1EF221BA00190CC0 /* Weather+CoreDataProperties.swift */; };
+		9316AF7E1EF2228D00190CC0 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9316AF7D1EF2228D00190CC0 /* DBManager.swift */; };
 		933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */; };
 		933A8D271EEFA34D0051B3AC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8D261EEFA34D0051B3AC /* Colors.swift */; };
 		935DC2F41EEF662600BB5163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DC2F31EEF662600BB5163 /* AppDelegate.swift */; };
@@ -41,6 +44,9 @@
 		8C7B2987C5EC71B5584EDEA1 /* Pods_SKBWeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKBWeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9316AF6B1EF20C8C00190CC0 /* WeatherStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherStateController.swift; sourceTree = "<group>"; };
 		9316AF6D1EF211CE00190CC0 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLs.swift; path = Utility/URLs.swift; sourceTree = "<group>"; };
+		9316AF791EF221BA00190CC0 /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9316AF7A1EF221BA00190CC0 /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9316AF7D1EF2228D00190CC0 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBManager.swift; path = DB/DBManager.swift; sourceTree = "<group>"; };
 		933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIVIewExtensions.swift; path = Extensions/UIVIewExtensions.swift; sourceTree = "<group>"; };
 		933A8D261EEFA34D0051B3AC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		935DC2F01EEF662600BB5163 /* SKBWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKBWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +107,21 @@
 			name = StateControllers;
 			sourceTree = "<group>";
 		};
+		9316AF711EF21BAE00190CC0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		9316AF741EF2205600190CC0 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				9316AF7D1EF2228D00190CC0 /* DBManager.swift */,
+			);
+			name = DB;
+			sourceTree = "<group>";
+		};
 		933A8D231EEF974A0051B3AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +153,8 @@
 		935DC2F21EEF662600BB5163 /* SKBWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				9316AF741EF2205600190CC0 /* DB */,
+				9316AF711EF21BAE00190CC0 /* Base */,
 				9316AF6A1EF20C7100190CC0 /* StateControllers */,
 				933A8D231EEF974A0051B3AC /* Extensions */,
 				939B68051EEF72E3006980C1 /* Views */,
@@ -187,6 +210,8 @@
 		939B68041EEF72DE006980C1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9316AF791EF221BA00190CC0 /* Weather+CoreDataClass.swift */,
+				9316AF7A1EF221BA00190CC0 /* Weather+CoreDataProperties.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -411,12 +436,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				939B680B1EEF8304006980C1 /* BackgroundView.swift in Sources */,
+				9316AF7B1EF221BA00190CC0 /* Weather+CoreDataClass.swift in Sources */,
 				933A8D271EEFA34D0051B3AC /* Colors.swift in Sources */,
+				9316AF7E1EF2228D00190CC0 /* DBManager.swift in Sources */,
 				9316AF6C1EF20C8C00190CC0 /* WeatherStateController.swift in Sources */,
 				933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */,
 				935DC2FC1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld in Sources */,
 				9316AF6E1EF211CE00190CC0 /* URLs.swift in Sources */,
 				939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */,
+				9316AF7C1EF221BA00190CC0 /* Weather+CoreDataProperties.swift in Sources */,
 				939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */,
 				939B68021EEF7272006980C1 /* MainAppService.swift in Sources */,
 				935DC2F41EEF662600BB5163 /* AppDelegate.swift in Sources */,
