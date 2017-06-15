@@ -12,7 +12,9 @@ import CoreLocation
 class WeatherViewController: UIViewController, CLLocationManagerDelegate
 {
     @IBOutlet weak var vwBackground: UIView!
+    
     let locationManager = CLLocationManager()
+    var stateController: WeatherStateController?
     
     override func viewDidLoad()
     {
@@ -30,6 +32,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         }
         
         setupNavigationControllerController()
+        
+        
         
     }
 
@@ -61,6 +65,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         print("Did location updates is called")
         let userLocation = locations[0] as CLLocation
         print ("Location: Long: \(userLocation.coordinate.longitude) Lat: \(userLocation.coordinate.latitude)")
+        stateController?.getCurrentWheather(lattitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         //store the user location here to firebase or somewhere
     }
     

@@ -10,6 +10,8 @@ import UIKit
 
 class MainAppService : NSObject, UIApplicationDelegate
 {
+    let wheaterStateController = WeatherStateController()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         appDelegate().window = UIWindow(frame: UIScreen.main.bounds)
@@ -21,6 +23,7 @@ class MainAppService : NSObject, UIApplicationDelegate
     
     func showWeatherVC() {
         let weatherVC = WeatherViewController()
+        weatherVC.stateController = wheaterStateController
         let navC = UINavigationController(rootViewController: weatherVC)
         appDelegate().window?.rootViewController = navC
     }
