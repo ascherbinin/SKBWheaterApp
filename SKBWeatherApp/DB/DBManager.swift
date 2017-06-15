@@ -69,7 +69,7 @@ class DBManager {
     // Fetched Request Controller for Entity Name
     func fetchRequest(entityName: String, keyForSort: String) -> [Any] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: false)
         let sortDescriptors = [sortDescriptor]
         fetchRequest.sortDescriptors = sortDescriptors
         do {

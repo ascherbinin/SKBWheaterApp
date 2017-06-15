@@ -13,18 +13,29 @@ import SwiftyJSON
 
 class WeatherStateController
 {
-//    private(set) var currentWeather: Weather = {
-//        if let items = NSKeyedUnarchiver.unarchiveObject(withFile: itemsFilePath) as? [ToDoItem] {
-//            return items
-//        }
-//        else {
-//            return Weather()
-//        }
-//    
-//    }()
+    private(set) var currentWeather: Weather = {
+        if let weathers = DBManager.instance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
+            return weathers[0]
+        }
+        else {
+            return Weather()
+        }
     
+    }()
+    
+    var loading: Bool = false
+    
+    var isLoading: Bool {
+        set {
+            self.loading = newValue
+        }
+        get {
+            return self.loading
+        }
+    }
     
     func getCurrentWheather(lattitude: Double, longitude: Double) -> Void {
+        isLoading = true;
         Alamofire.request(URLs().getWeatherByCoordRequestUrl(latitude: lattitude, longitude: longitude), method: .get).validate().responseJSON {
             response in
             switch response.result {
@@ -131,7 +142,9 @@ class WeatherStateController
                 newWeather.dt = NSDate()
 
                 self.save()
+                self.isLoading = false
             case .failure(let error):
+                self.isLoading = false
                 print(error)
             }
         }
@@ -146,6 +159,7 @@ class WeatherStateController
     
     func getLastWeather() {
         let weathers = DBManager.instance.fetchRequest(entityName: "Weather", keyForSort: "dt") as! [Weather]
+        
         print (weathers)
     }
     

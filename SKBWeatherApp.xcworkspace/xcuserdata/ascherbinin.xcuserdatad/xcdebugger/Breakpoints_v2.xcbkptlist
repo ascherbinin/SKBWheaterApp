@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SKBWeatherApp/WeatherStateController.swift"
-            timestampString = "519190216.660373"
+            timestampString = "519194276.877953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "getLastWeather()"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "getCurrentWheather(lattitude:longitude:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,14 +41,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SKBWeatherApp/DB/DBManager.swift"
-            timestampString = "519190298.12003"
+            filePath = "SKBWeatherApp/WeatherStateController.swift"
+            timestampString = "519194283.230379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "fetchRequest(entityName:keyForSort:)"
-            landmarkType = "7">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "currentWeather"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

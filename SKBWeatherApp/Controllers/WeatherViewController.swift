@@ -8,10 +8,21 @@
 
 import UIKit
 import CoreLocation
+import AlamofireImage
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate
 {
     @IBOutlet weak var vwBackground: UIView!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblTemp: UILabel!
+    @IBOutlet weak var lblCurrentLocation: UILabel!
+    @IBOutlet weak var ivWeatherIcon: UIImageView!
+    @IBOutlet weak var lblWeatherTitle: UILabel!
+    @IBOutlet weak var lblWind: UILabel!
+    @IBOutlet weak var lblWindSpeed: UILabel!
+    @IBOutlet weak var lblClouds: UILabel!
+    @IBOutlet weak var lblCloudsPercent: UILabel!
+
     
     let locationManager = CLLocationManager()
     var stateController: WeatherStateController?
@@ -33,8 +44,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         
         setupNavigationControllerController()
         
-        
-        stateController?.getLastWeather()
+        updateCurrentWeather(weather: (stateController?.currentWeather)!)
     }
 
     override func didReceiveMemoryWarning()
@@ -65,7 +75,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         print("Did location updates is called")
         let userLocation = locations[0] as CLLocation
         print ("Location: Long: \(userLocation.coordinate.longitude) Lat: \(userLocation.coordinate.latitude)")
-        stateController?.getCurrentWheather(lattitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        if stateController?.isLoading == false {
+            stateController?.getCurrentWheather(lattitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+            updateCurrentWeather(weather: (stateController?.currentWeather)!)
+        }
+        
         //store the user location here to firebase or somewhere
     }
     
@@ -79,7 +93,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-        //var image = UIImage(named: "listImage")
         let rightBarButton = UIBarButtonItem(image: UIImage(named: "listImage"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(WeatherViewController.showWheaterList))
         rightBarButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = rightBarButton
@@ -88,5 +101,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
     func showWheaterList() -> Void {
         print ("Show wheater!")
     }
-
+    
+    func updateCurrentWeather(weather: Weather) -> Void {
+        lblDate.text = "Today: \(weather.dt!.customFormatted)"
+        lblTemp.text = "\(Int16(weather.temperature)) °C"
+        lblCurrentLocation.text = weather.cityName! + "," + weather.countryName!
+        lblWeatherTitle.text = weather.weatherTitle
+        lblWindSpeed.text = "\(weather.windSpeed) m/sec"
+        lblCloudsPercent.text = "\(weather.clouds) %"
+        ivWeatherIcon.af_setImage(withURL: URL(string: "http://openweathermap.org/img/w/\(weather.iconName!).png")!)
+    }
 }

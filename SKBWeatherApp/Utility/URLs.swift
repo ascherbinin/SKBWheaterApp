@@ -27,6 +27,7 @@ struct URLs {
     private let API_KEY_FIELD = "appid"
     private let LONGITUDE_FIELD = "lon"
     private let LATTITUDE_FIELD = "lat"
+    private let UNITS_FIELD = "units"
     
     func getWeatherByCoordURL() -> String
     {
@@ -39,6 +40,7 @@ struct URLs {
         var body = ""
         body = addParamToBody(body, param: LATTITUDE_FIELD, value: String(latitude))
         body = addParamToBody(body, param: LONGITUDE_FIELD, value: String(longitude))
+        body = addParamToBody(body, param: UNITS_FIELD, value: "metric")
         return getWeatherByCoordURL() + reqWithApiKey(body)
     }
     
