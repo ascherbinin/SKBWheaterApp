@@ -22,6 +22,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var lblWindSpeed: UILabel!
     @IBOutlet weak var lblClouds: UILabel!
     @IBOutlet weak var lblCloudsPercent: UILabel!
+    @IBOutlet weak var aiLoading: UIActivityIndicatorView!
 
     
     let locationManager = CLLocationManager()
@@ -41,12 +42,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestLocation();
         }
-        
         setupNavigationControllerController()
-        
         updateCurrentWeather(weather: (stateController?.currentWeather)!)
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -76,8 +75,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
         let userLocation = locations[0] as CLLocation
         print ("Location: Long: \(userLocation.coordinate.longitude) Lat: \(userLocation.coordinate.latitude)")
         if stateController?.isLoading == false {
-            stateController?.getCurrentWheather(lattitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-            updateCurrentWeather(weather: (stateController?.currentWeather)!)
+            stateController?.isLoading = true
+            stateController?.getCurrentWeather(lattitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude) {
+                () -> () in
+                   self.stateController?.isLoading = false
+                   self.updateCurrentWeather(weather: (self.stateController?.currentWeather)!)
+                   self.aiLoading.stopAnimating()
+            }
+            
         }
         
         //store the user location here to firebase or somewhere
@@ -105,7 +110,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate
     func updateCurrentWeather(weather: Weather) -> Void {
         lblDate.text = "Today: \(weather.dt!.customFormatted)"
         lblTemp.text = "\(Int16(weather.temperature)) °C"
-        lblCurrentLocation.text = weather.cityName! + "," + weather.countryName!
+        lblCurrentLocation.text = weather.cityName! + ", " + weather.countryName!
         lblWeatherTitle.text = weather.weatherTitle
         lblWindSpeed.text = "\(weather.windSpeed) m/sec"
         lblCloudsPercent.text = "\(weather.clouds) %"

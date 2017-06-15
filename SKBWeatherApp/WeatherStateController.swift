@@ -13,15 +13,16 @@ import SwiftyJSON
 
 class WeatherStateController
 {
-    private(set) var currentWeather: Weather = {
-        if let weathers = DBManager.instance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
-            return weathers[0]
+    var currentWeather: Weather {
+        get {
+            if let weathers = DBManager.instance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
+                return weathers[0]
+            }
+            else {
+                return Weather()
+            }
         }
-        else {
-            return Weather()
-        }
-    
-    }()
+    }
     
     var loading: Bool = false
     
@@ -34,7 +35,7 @@ class WeatherStateController
         }
     }
     
-    func getCurrentWheather(lattitude: Double, longitude: Double) -> Void {
+    func getCurrentWeather(lattitude: Double, longitude: Double, handleComplete:@escaping ()->()) {
         isLoading = true;
         Alamofire.request(URLs().getWeatherByCoordRequestUrl(latitude: lattitude, longitude: longitude), method: .get).validate().responseJSON {
             response in
@@ -142,7 +143,7 @@ class WeatherStateController
                 newWeather.dt = NSDate()
 
                 self.save()
-                self.isLoading = false
+                handleComplete()
             case .failure(let error):
                 self.isLoading = false
                 print(error)
