@@ -51,6 +51,7 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     
     func setupNavigationControllerController()
     {
+        self.navigationController?.delegate = self as? UINavigationControllerDelegate
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -62,7 +63,7 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     
     func showWheaterList() -> Void {
         let weathersVC = WeathersListViewController()
-        self.navigationController?.pushViewController(weathersVC, animated: true)
+        self.navigationController?.push(viewController: weathersVC, transitionType: kCATransitionMoveIn, duration: 0.4)
     }
     
     func updateCurrentWeather(weather: Weather) -> Void {

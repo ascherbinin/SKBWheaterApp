@@ -28,6 +28,7 @@
 		937075431EF7B4C8003AED40 /* WeathersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937075411EF7B4C8003AED40 /* WeathersListViewController.xib */; };
 		937075471EF7B506003AED40 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937075451EF7B506003AED40 /* WeatherCell.swift */; };
 		937075481EF7B506003AED40 /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937075461EF7B506003AED40 /* WeatherCell.xib */; };
+		9370754F1EF7C963003AED40 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370754E1EF7C963003AED40 /* UINavigationControllerExtensions.swift */; };
 		939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */; };
 		939B68021EEF7272006980C1 /* MainAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68011EEF7272006980C1 /* MainAppService.swift */; };
 		939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68061EEF7302006980C1 /* WeatherViewController.swift */; };
@@ -74,6 +75,7 @@
 		937075411EF7B4C8003AED40 /* WeathersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WeathersListViewController.xib; path = Controllers/WeathersListViewController.xib; sourceTree = "<group>"; };
 		937075451EF7B506003AED40 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherCell.swift; path = Cells/WeatherCell.swift; sourceTree = "<group>"; };
 		937075461EF7B506003AED40 /* WeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WeatherCell.xib; path = Cells/WeatherCell.xib; sourceTree = "<group>"; };
+		9370754E1EF7C963003AED40 /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationControllerExtensions.swift; path = Extensions/UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceDispatcher.swift; path = Utility/ServiceDispatcher.swift; sourceTree = "<group>"; };
 		939B68011EEF7272006980C1 /* MainAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainAppService.swift; path = Services/MainAppService.swift; sourceTree = "<group>"; };
 		939B68061EEF7302006980C1 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = Controllers/WeatherViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */,
 				932698D91EF2426700A20F13 /* DateExtensions.swift */,
 				9370753E1EF7A5E0003AED40 /* UILabelExtensions.swift */,
+				9370754E1EF7C963003AED40 /* UINavigationControllerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */,
 				937075471EF7B506003AED40 /* WeatherCell.swift in Sources */,
 				935DC2FC1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld in Sources */,
+				9370754F1EF7C963003AED40 /* UINavigationControllerExtensions.swift in Sources */,
 				937075391EF75D71003AED40 /* LocationService.swift in Sources */,
 				937075421EF7B4C8003AED40 /* WeathersListViewController.swift in Sources */,
 				932698DA1EF2426700A20F13 /* DateExtensions.swift in Sources */,
