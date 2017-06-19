@@ -21,6 +21,7 @@
 		935DC2FE1EEF662600BB5163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935DC2FD1EEF662600BB5163 /* Assets.xcassets */; };
 		935DC3011EEF662600BB5163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935DC2FF1EEF662600BB5163 /* LaunchScreen.storyboard */; };
 		935DC30C1EEF662600BB5163 /* SKBWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DC30B1EEF662600BB5163 /* SKBWeatherAppTests.swift */; };
+		937075391EF75D71003AED40 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937075381EF75D71003AED40 /* LocationService.swift */; };
 		939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */; };
 		939B68021EEF7272006980C1 /* MainAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68011EEF7272006980C1 /* MainAppService.swift */; };
 		939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68061EEF7302006980C1 /* WeatherViewController.swift */; };
@@ -60,6 +61,7 @@
 		935DC3071EEF662600BB5163 /* SKBWeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKBWeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		935DC30B1EEF662600BB5163 /* SKBWeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBWeatherAppTests.swift; sourceTree = "<group>"; };
 		935DC30D1EEF662600BB5163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		937075381EF75D71003AED40 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Base/Services/LocationService.swift; sourceTree = "<group>"; };
 		939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceDispatcher.swift; path = Utility/ServiceDispatcher.swift; sourceTree = "<group>"; };
 		939B68011EEF7272006980C1 /* MainAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainAppService.swift; path = Services/MainAppService.swift; sourceTree = "<group>"; };
 		939B68061EEF7302006980C1 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = Controllers/WeatherViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		9316AF711EF21BAE00190CC0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				937075371EF75D51003AED40 /* Services */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -181,6 +184,14 @@
 				935DC30D1EEF662600BB5163 /* Info.plist */,
 			);
 			path = SKBWeatherAppTests;
+			sourceTree = "<group>";
+		};
+		937075371EF75D51003AED40 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				937075381EF75D71003AED40 /* LocationService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		939B67FD1EEF71AC006980C1 /* Utility */ = {
@@ -445,6 +456,7 @@
 				9316AF6C1EF20C8C00190CC0 /* WeatherStateController.swift in Sources */,
 				933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */,
 				935DC2FC1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld in Sources */,
+				937075391EF75D71003AED40 /* LocationService.swift in Sources */,
 				932698DA1EF2426700A20F13 /* DateExtensions.swift in Sources */,
 				9316AF6E1EF211CE00190CC0 /* URLs.swift in Sources */,
 				939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */,

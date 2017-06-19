@@ -15,6 +15,7 @@ struct URLs {
  
 
     private let baseURL = "http://api.openweathermap.org"
+    private let baseIMAGEURL = "http://openweathermap.org/img/w/"
     private let apiKey = "249debd02da485df26d56c612c40cf33"
     fileprivate let currentAPIVersion : String! = "/data/2.5"
     
@@ -42,6 +43,11 @@ struct URLs {
         body = addParamToBody(body, param: LONGITUDE_FIELD, value: String(longitude))
         body = addParamToBody(body, param: UNITS_FIELD, value: "metric")
         return getWeatherByCoordURL() + reqWithApiKey(body)
+    }
+    
+    func getImageURL() -> String
+    {
+        return baseIMAGEURL
     }
     
     // MARK: - Internal section
