@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Toast_Swift
 
 extension UIView
 {
@@ -27,5 +28,20 @@ extension UIView
         self.layer.insertSublayer(gradient, at: 0)
     }
     
+    func showToastOnView(_ message: String)
+    {
+        if window == nil
+        {
+            makeToast(message,
+                      duration: 3.3,
+                      position: .bottom)
+        }
+        else
+        {
+            window!.makeToast(message,
+                              duration: 3.3,
+                              position: .bottom)
+        }
+    }
   
 }

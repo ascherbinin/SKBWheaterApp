@@ -63,6 +63,7 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     
     func showWheaterList() -> Void {
         let weathersVC = WeathersListViewController()
+        weathersVC.stateController = stateController;
         self.navigationController?.push(viewController: weathersVC, transitionType: kCATransitionMoveIn, duration: 0.4)
     }
     
@@ -81,8 +82,14 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
          aiLoading.stopAnimating()
     }
     
+    func errorRequest(error: Error) {
+        self.view.makeToast(error.localizedDescription)
+        aiLoading.stopAnimating()
+    }
+    
 
     @IBAction func onClickRefresh(_ sender: Any) {
-        
+        aiLoading.startAnimating()
+        stateController?.startGetLocation()
     }
 }

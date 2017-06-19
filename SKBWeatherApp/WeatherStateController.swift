@@ -15,11 +15,13 @@ import UserNotifications
 
 protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather)
+    func errorRequest(error: Error)
 }
 
 class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificationCenterDelegate
 {
     var delegate: WeatherStateProtocol?
+    var frc = DBManager.sharedInstance.fetchedResultsController(entityName: "Weather", keyForSort: "dt", ascending: false)
     
     var currentWeather: Weather {
         get {
@@ -200,9 +202,8 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                 }
                 self.isLoading = false
             }) {error in
-                print (error)
+                self.delegate?.errorRequest(error: error)
                 self.isLoading = false
-                
             }
         }
     }

@@ -7,27 +7,30 @@
 //
 
 import UIKit
+import CoreData
 
-class WeathersListViewController: UITableViewController {
-        
+class WeathersListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    var stateController: WeatherStateController?
+    var tableViewDataSource: WeatherListDataSource?
+    var tableViewDelegate: WeatherListDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.backgroundView = BackgroundView()
         tableView.register(UINib(nibName: WeatherCell.identifier, bundle: nil), forCellReuseIdentifier: WeatherCell.identifier)
-//        stateController?.frc.delegate = self
-//        do {
-//            try stateController?.frc.performFetch()
-//        } catch {
-//            print(error)
-//        }
-//        
-//        if let stateController = stateController {
-//            tableViewDataSource = ToDoTableViewDataSource(tableView: tableView, stateController: stateController)
-//            tableViewDelegate = ToDoTableViewDelegate(tableView: tableView, stateController: stateController)
-//        }
+        stateController?.frc.delegate = self
+        do {
+            try stateController?.frc.performFetch()
+        } catch {
+            print(error)
+        }
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        if let stateController = stateController {
+            tableViewDataSource = WeatherListDataSource(tableView: tableView, stateController: stateController)
+            tableViewDelegate = WeatherListDelegate(tableView: tableView, stateController: stateController)
+        }
+        
         
         self.title = "Погодка!"
     }
@@ -37,23 +40,40 @@ class WeathersListViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                let weather = stateController?.frc.object(at: indexPath) as! Weather
+                let cell = tableView.cellForRow(at: indexPath) as! WeatherCell
+                cell.temperature = "\(weather.temperature)"
+                cell.date = "\(weather.dt!)"
+                cell.location = weather.cityName
+            }
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.identifier, for: indexPath) as! WeatherCell
-        cell.date = "10/15/15"
-        cell.temperature = "10 C"
-        cell.location = "CURERNT"
-        return cell
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 }

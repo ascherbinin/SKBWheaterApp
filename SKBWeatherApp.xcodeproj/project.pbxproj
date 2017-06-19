@@ -34,6 +34,9 @@
 		939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68061EEF7302006980C1 /* WeatherViewController.swift */; };
 		939B68091EEF7302006980C1 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939B68071EEF7302006980C1 /* WeatherViewController.xib */; };
 		939B680B1EEF8304006980C1 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B680A1EEF8304006980C1 /* BackgroundView.swift */; };
+		93C500791EF8425B0068E153 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C500781EF8425B0068E153 /* Common.swift */; };
+		93C5007D1EF846E60068E153 /* WeatherListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5007C1EF846E60068E153 /* WeatherListDataSource.swift */; };
+		93C5007F1EF847C60068E153 /* WeatherListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5007E1EF847C60068E153 /* WeatherListDelegate.swift */; };
 		A1D93F9A5F39038C3743DF55 /* Pods_SKBWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242D76A84EFC70603C082E62 /* Pods_SKBWeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,9 @@
 		939B68061EEF7302006980C1 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = Controllers/WeatherViewController.swift; sourceTree = "<group>"; };
 		939B68071EEF7302006980C1 /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WeatherViewController.xib; path = Controllers/WeatherViewController.xib; sourceTree = "<group>"; };
 		939B680A1EEF8304006980C1 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = Views/BackgroundView.swift; sourceTree = "<group>"; };
+		93C500781EF8425B0068E153 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = Base/Common.swift; sourceTree = "<group>"; };
+		93C5007C1EF846E60068E153 /* WeatherListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherListDataSource.swift; path = DataSources/WeatherListDataSource.swift; sourceTree = "<group>"; };
+		93C5007E1EF847C60068E153 /* WeatherListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherListDelegate.swift; path = Delegates/WeatherListDelegate.swift; sourceTree = "<group>"; };
 		A0F34DDE4634CC298D7C7816 /* Pods-SKBWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		A548128EB7D16D8304168EBF /* Pods-SKBWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E4C54466D72B25758C30A3 /* Pods-SKBWeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherAppTests/Pods-SKBWeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 		9316AF6A1EF20C7100190CC0 /* StateControllers */ = {
 			isa = PBXGroup;
 			children = (
+				93C5007B1EF846BC0068E153 /* Delegates */,
+				93C5007A1EF846B40068E153 /* DataSources */,
 				9316AF6B1EF20C8C00190CC0 /* WeatherStateController.swift */,
 			);
 			name = StateControllers;
@@ -129,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				937075371EF75D51003AED40 /* Services */,
+				93C500781EF8425B0068E153 /* Common.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -265,6 +274,22 @@
 				939B680A1EEF8304006980C1 /* BackgroundView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		93C5007A1EF846B40068E153 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				93C5007C1EF846E60068E153 /* WeatherListDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		93C5007B1EF846BC0068E153 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				93C5007E1EF847C60068E153 /* WeatherListDelegate.swift */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 		98C5E8C68AE2AD30FC183606 /* Frameworks */ = {
@@ -483,16 +508,19 @@
 				939B680B1EEF8304006980C1 /* BackgroundView.swift in Sources */,
 				9316AF7B1EF221BA00190CC0 /* Weather+CoreDataClass.swift in Sources */,
 				933A8D271EEFA34D0051B3AC /* Colors.swift in Sources */,
+				93C5007D1EF846E60068E153 /* WeatherListDataSource.swift in Sources */,
 				9316AF7E1EF2228D00190CC0 /* DBManager.swift in Sources */,
 				9316AF6C1EF20C8C00190CC0 /* WeatherStateController.swift in Sources */,
 				933A8D251EEF97640051B3AC /* UIVIewExtensions.swift in Sources */,
 				937075471EF7B506003AED40 /* WeatherCell.swift in Sources */,
 				935DC2FC1EEF662600BB5163 /* SKBWeatherApp.xcdatamodeld in Sources */,
 				9370754F1EF7C963003AED40 /* UINavigationControllerExtensions.swift in Sources */,
+				93C5007F1EF847C60068E153 /* WeatherListDelegate.swift in Sources */,
 				937075391EF75D71003AED40 /* LocationService.swift in Sources */,
 				937075421EF7B4C8003AED40 /* WeathersListViewController.swift in Sources */,
 				932698DA1EF2426700A20F13 /* DateExtensions.swift in Sources */,
 				9316AF6E1EF211CE00190CC0 /* URLs.swift in Sources */,
+				93C500791EF8425B0068E153 /* Common.swift in Sources */,
 				939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */,
 				9316AF7C1EF221BA00190CC0 /* Weather+CoreDataProperties.swift in Sources */,
 				9370753B1EF778F4003AED40 /* LocalNotificationService.swift in Sources */,

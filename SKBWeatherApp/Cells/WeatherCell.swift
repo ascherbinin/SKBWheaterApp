@@ -12,6 +12,7 @@ class WeatherCell: UITableViewCell {
 
     
     static let identifier = "WeatherCell"
+    static let height = 60.0
     
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblTemperature: UILabel!

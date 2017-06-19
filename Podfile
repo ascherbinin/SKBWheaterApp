@@ -10,6 +10,7 @@ target 'SKBWeatherApp' do
   pod 'AlamofireImage', '~> 3.1'
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
+  pod 'Toast-Swift', '~> 2.0.0'
 
   target 'SKBWeatherAppTests' do
     inherit! :search_paths
