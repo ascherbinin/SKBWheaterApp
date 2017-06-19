@@ -33,7 +33,9 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
         setupNavigationControllerController()
         stateController?.delegate = self
         stateController?.startGetLocation()
-        updateCurrentWeather(weather: (stateController?.currentWeather)!)
+        if (stateController?.currentWeather) != nil {
+            updateCurrentWeather(weather: (stateController?.currentWeather)!)
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -68,7 +70,10 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     }
     
     func updateCurrentWeather(weather: Weather) -> Void {
-        lblDate.text = "Today: \(weather.dt!.customFormatted)"
+        if let date = weather.dt?.customFormatted {
+            lblDate.text = "Today: \(date)"
+        }
+        
         lblTemp.fadeTransitionWithText(0.5, text: "\(Int16(weather.temperature)) °C")
         lblCurrentLocation.text = weather.cityName! + ", " + weather.countryName!
         lblWeatherTitle.text = weather.weatherTitle
@@ -82,8 +87,8 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
          aiLoading.stopAnimating()
     }
     
-    func errorRequest(error: Error) {
-        self.view.makeToast(error.localizedDescription)
+    func errorRequest(errorMsg: String) {
+        self.view.makeToast(errorMsg)
         aiLoading.stopAnimating()
     }
     

@@ -15,7 +15,7 @@ import UserNotifications
 
 protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather)
-    func errorRequest(error: Error)
+    func errorRequest(errorMsg: String)
 }
 
 class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificationCenterDelegate
@@ -46,7 +46,11 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                            handleComplete:@escaping (_ isColdy: Bool)->(),
                            handleError:@escaping (_ error: Error)->()) {
         isLoading = true;
-        UNUserNotificationCenter.current().delegate = self
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+        } else {
+            // Fallback on earlier versions
+        }
         Alamofire.request(URLs().getWeatherByCoordRequestUrl(latitude: latitude, longitude: longitude), method: .get).validate().responseJSON {
                 response in
                 switch response.result {
@@ -58,8 +62,8 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                     print("JSON: \(json)")
                     
                     if let temp = json["main"]["temp"].float {
-                        newWeather.temperature = temp
-                        //newWeather.temperature = 10
+                        //newWeather.temperature = temp
+                        newWeather.temperature = 10
                     } else {
                         //Print the error
                         print(json["user"]["id"])
@@ -177,7 +181,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     
     func getLastWeather() -> Weather {
         if let weathers = DBManager.sharedInstance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
-            return weathers[0]
+            return weathers.count > 0 ? weathers[0] : Weather()
         }
         else {
            return Weather()
@@ -202,14 +206,14 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                 }
                 self.isLoading = false
             }) {error in
-                self.delegate?.errorRequest(error: error)
+                self.delegate?.errorRequest(errorMsg: error.localizedDescription)
                 self.isLoading = false
             }
         }
     }
     
     func tracingLocationDidFailWithError(error: Error) {
-       print ("error: \(error)");
+        self.delegate?.errorRequest(errorMsg: "Не удалось получить геопозицию: \(error.localizedDescription)")
     }
     
     func startGetLocation(){
@@ -217,10 +221,12 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
         LocationService.sharedInstance.startUpdatingLocation()
     }
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert,.badge])
     }
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case "notification":
@@ -234,24 +240,31 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     
     func createNotification ()
     {
-        let content = UNMutableNotificationContent()
-        let requestIdentifier = "coldNotification"
-        content.title = "Похолодало!"
-        content.body = "Нужно одеться теплее!"
-        content.categoryIdentifier = "notifyCategory"
-        content.sound = UNNotificationSound.default()
-        
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request) { (error:Error?) in
+        if #available(iOS 10.0, *) {
+            let content = UNMutableNotificationContent()
+            let requestIdentifier = "coldNotification"
+            content.title = "Похолодало!"
+            content.body = "Нужно одеться теплее!"
+            content.categoryIdentifier = "notifyCategory"
+            content.sound = UNNotificationSound.default()
             
-            if error != nil {
-                print(error!.localizedDescription)
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { (error:Error?) in
+                
+                if error != nil {
+                    print(error!.localizedDescription)
+                }
             }
+        } else {
+            let localNotification = UILocalNotification()
+            localNotification.fireDate = Date(timeIntervalSinceNow: 1)
+            localNotification.alertBody = "Нужно одеться теплее!"
+            localNotification.timeZone = NSTimeZone.default
+            
+            //set the notification
+            UIApplication.shared.presentLocalNotificationNow(localNotification)
         }
     }
-    
-    
-    
 }

@@ -37,7 +37,9 @@ extension WeatherListDataSource: UITableViewDataSource {
         let weather = stateController.frc.object(at: indexPath) as! Weather
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherCell.identifier, for: indexPath) as! WeatherCell
         cell.temperature = "\(Int16(weather.temperature)) °C"
-        cell.date = "\(weather.dt!.customFormatted)"
+        if let date = weather.dt?.customFormatted {
+            cell.date = "\(date)"
+        }
         cell.location = weather.cityName
         return cell
     }

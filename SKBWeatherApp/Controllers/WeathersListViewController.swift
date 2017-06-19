@@ -56,7 +56,9 @@ class WeathersListViewController: UITableViewController, NSFetchedResultsControl
                 let weather = stateController?.frc.object(at: indexPath) as! Weather
                 let cell = tableView.cellForRow(at: indexPath) as! WeatherCell
                 cell.temperature = "\(weather.temperature)"
-                cell.date = "\(weather.dt!)"
+                if let date = weather.dt?.customFormatted {
+                    cell.date = "\(date)"
+                }
                 cell.location = weather.cityName
             }
         case .move:

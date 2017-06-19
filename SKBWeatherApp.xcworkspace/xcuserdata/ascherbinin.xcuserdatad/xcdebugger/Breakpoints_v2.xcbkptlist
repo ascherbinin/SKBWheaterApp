@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SKBWeatherApp/Base/Services/LocationService.swift"
-            timestampString = "519533240.799653"
+            timestampString = "519595886.553133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104">
+            startingLineNumber = "105"
+            endingLineNumber = "105">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -136,7 +136,7 @@
                   moduleName = "SKBWeatherApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ascherbinin/Documents/Projects/SKBWeatherApp/SKBWeatherApp/Extensions/UINavigationControllerExtensions.swift"
-                  timestampString = "519588457.799734"
+                  timestampString = "519595970.156053"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -151,7 +151,7 @@
                   moduleName = "SKBWeatherApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ascherbinin/Documents/Projects/SKBWeatherApp/SKBWeatherApp/Extensions/UINavigationControllerExtensions.swift"
-                  timestampString = "519588457.803055"
+                  timestampString = "519595970.158912"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -166,7 +166,7 @@
                   moduleName = "SKBWeatherApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ascherbinin/Documents/Projects/SKBWeatherApp/SKBWeatherApp/Extensions/UINavigationControllerExtensions.swift"
-                  timestampString = "519588457.804827"
+                  timestampString = "519595970.16191"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -205,6 +205,54 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "showToastOnView(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKBWeatherApp/WeatherStateController.swift"
+            timestampString = "519594129.853876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "getCurrentWeather(latitude:longitude:handleComplete:handleError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKBWeatherApp/WeatherStateController.swift"
+            timestampString = "519594173.351278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "tracingLocation(curLocation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKBWeatherApp/Services/LocalNotificationService.swift"
+            timestampString = "519595772.866583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "initNotificationSetupCheck()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

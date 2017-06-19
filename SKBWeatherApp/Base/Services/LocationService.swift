@@ -91,4 +91,5 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         
         delegate.tracingLocationDidFailWithError(error: error)
     }
+
 }

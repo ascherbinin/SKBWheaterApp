@@ -15,7 +15,6 @@ class LocalNotificationService : NSObject, UIApplicationDelegate, UNUserNotifica
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         initNotificationSetupCheck()
-        
         return true
     }
     
@@ -24,21 +23,31 @@ class LocalNotificationService : NSObject, UIApplicationDelegate, UNUserNotifica
     }
     
     func initNotificationSetupCheck() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
-        { (success, error) in
-            if success {
-                print("Permission Granted")
-            } else {
-                print("There was a problem!")
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+            { (success, error) in
+                if success {
+                    print("Permission Granted")
+                } else {
+                    print("There was a problem!")
+                }
             }
+            
+            //actions defination
+            let action = UNNotificationAction(identifier: "notify", title: "Action First", options: [.foreground])
+            
+            let category = UNNotificationCategory(identifier: "notifyCategory", actions: [action], intentIdentifiers: [], options: [])
+            
+            UNUserNotificationCenter.current().setNotificationCategories([category])
+        }
+        else {
+            if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+                UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: .alert , categories: nil))
+            }
+        
         }
         
-        //actions defination
-        let action = UNNotificationAction(identifier: "notify", title: "Action First", options: [.foreground])
-        
-        let category = UNNotificationCategory(identifier: "notifyCategory", actions: [action], intentIdentifiers: [], options: [])
-        
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+       
     }
     
 

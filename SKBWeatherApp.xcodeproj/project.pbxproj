@@ -357,6 +357,7 @@
 				TargetAttributes = {
 					935DC2EF1EEF662600BB5163 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8PCTL6TV7M;
 						ProvisioningStyle = Automatic;
 					};
 					935DC3061EEF662600BB5163 = {
@@ -659,7 +660,9 @@
 			baseConfigurationReference = A548128EB7D16D8304168EBF /* Pods-SKBWeatherApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8PCTL6TV7M;
 				INFOPLIST_FILE = SKBWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.SKBWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -672,7 +675,9 @@
 			baseConfigurationReference = A0F34DDE4634CC298D7C7816 /* Pods-SKBWeatherApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8PCTL6TV7M;
 				INFOPLIST_FILE = SKBWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.SKBWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
