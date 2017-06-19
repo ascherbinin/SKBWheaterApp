@@ -12,7 +12,6 @@ import AlamofireImage
 class WeatherViewController: UIViewController, WeatherStateProtocol
 {
 
-
     @IBOutlet weak var vwBackground: UIView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblTemp: UILabel!
@@ -24,6 +23,7 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     @IBOutlet weak var lblClouds: UILabel!
     @IBOutlet weak var lblCloudsPercent: UILabel!
     @IBOutlet weak var aiLoading: UIActivityIndicatorView!
+    @IBOutlet weak var btnRefresh: UIButton!
 
     var stateController: WeatherStateController?
     
@@ -61,12 +61,13 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     }
     
     func showWheaterList() -> Void {
-        print ("Show wheater!")
+        let weathersVC = WeathersListViewController()
+        self.navigationController?.pushViewController(weathersVC, animated: true)
     }
     
     func updateCurrentWeather(weather: Weather) -> Void {
         lblDate.text = "Today: \(weather.dt!.customFormatted)"
-        lblTemp.text = "\(Int16(weather.temperature)) °C"
+        lblTemp.fadeTransitionWithText(0.5, text: "\(Int16(weather.temperature)) °C")
         lblCurrentLocation.text = weather.cityName! + ", " + weather.countryName!
         lblWeatherTitle.text = weather.weatherTitle
         lblWindSpeed.text = "\(weather.windSpeed) m/sec"
@@ -79,8 +80,8 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
          aiLoading.stopAnimating()
     }
     
-    func notifyColdy() {
-        print ("coldy coldy coldy")
-    }
 
+    @IBAction func onClickRefresh(_ sender: Any) {
+        
+    }
 }

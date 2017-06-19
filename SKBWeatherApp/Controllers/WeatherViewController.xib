@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="SKBWeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="aiLoading" destination="lgg-vS-LUJ" id="bIc-BO-lfX"/>
+                <outlet property="btnRefresh" destination="yte-Ce-ksC" id="KZp-Ke-35S"/>
                 <outlet property="ivWeatherIcon" destination="XOp-mA-vhI" id="zu2-4G-yeG"/>
                 <outlet property="lblClouds" destination="kgQ-r4-5Fu" id="OI9-Zf-Pex"/>
                 <outlet property="lblCloudsPercent" destination="8oX-kA-eXw" id="m88-bP-Cyc"/>
@@ -41,7 +42,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tokyo, JP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-fg-XLN">
-                            <rect key="frame" x="132" y="262" width="112.5" height="30"/>
+                            <rect key="frame" x="131" y="262" width="113" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="vEx-70-4Rl"/>
                             </constraints>
@@ -50,7 +51,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxm-ca-0ms">
-                            <rect key="frame" x="124" y="188" width="128.5" height="66"/>
+                            <rect key="frame" x="123" y="188" width="129" height="66"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="66" id="zSG-LP-P89"/>
                             </constraints>
@@ -68,25 +69,25 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgc-r6-PYL">
-                            <rect key="frame" x="170" y="441" width="34" height="16.5"/>
+                            <rect key="frame" x="170" y="441" width="34" height="17"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" red="0.41956853869999999" green="0.41963297129999999" blue="0.41955450179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="clouds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgQ-r4-5Fu">
-                            <rect key="frame" x="167" y="482" width="42" height="16.5"/>
+                            <rect key="frame" x="167" y="482" width="42" height="17"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" red="0.41956853866577148" green="0.41963297128677368" blue="0.41955450177192688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.5 m/sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLb-0Y-DDh">
-                            <rect key="frame" x="143" y="458" width="89" height="23.5"/>
+                            <rect key="frame" x="143" y="458" width="89" height="24"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-kA-eXw">
-                            <rect key="frame" x="169.5" y="499" width="37" height="23.5"/>
+                            <rect key="frame" x="169" y="499" width="37" height="24"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -97,8 +98,15 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yte-Ce-ksC">
+                            <rect key="frame" x="149.5" y="528" width="75" height="75"/>
+                            <state key="normal" image="refreshImage"/>
+                            <connections>
+                                <action selector="onClickRefresh:" destination="-1" eventType="touchUpInside" id="VfI-G3-Jjd"/>
+                            </connections>
+                        </button>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lgg-vS-LUJ">
-                            <rect key="frame" x="169" y="540" width="37" height="37"/>
+                            <rect key="frame" x="169" y="105" width="37" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.70756662436548223" green="0.70756662436548223" blue="0.70756662436548223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,16 +118,18 @@
                         <constraint firstItem="pxD-QW-jJN" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="6s3-6d-5oE"/>
                         <constraint firstItem="0M5-da-X56" firstAttribute="top" secondItem="XOp-mA-vhI" secondAttribute="bottom" constant="8" id="7w5-dF-KV7"/>
                         <constraint firstItem="uLb-0Y-DDh" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="Et5-F1-dsO"/>
-                        <constraint firstItem="lgg-vS-LUJ" firstAttribute="top" secondItem="8oX-kA-eXw" secondAttribute="bottom" constant="17.5" id="Exe-Yw-OkE"/>
                         <constraint firstItem="8oX-kA-eXw" firstAttribute="top" secondItem="kgQ-r4-5Fu" secondAttribute="bottom" id="FnV-XA-MrX"/>
-                        <constraint firstItem="lgg-vS-LUJ" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="GCn-0S-YVo"/>
                         <constraint firstItem="8jA-fg-XLN" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="Kcs-eK-LE6"/>
                         <constraint firstItem="bxm-ca-0ms" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="KqA-hj-O1m"/>
                         <constraint firstItem="uLb-0Y-DDh" firstAttribute="top" secondItem="Qgc-r6-PYL" secondAttribute="bottom" id="LCE-LH-EIO"/>
+                        <constraint firstItem="yte-Ce-ksC" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="NW4-tP-vhg"/>
                         <constraint firstItem="pxD-QW-jJN" firstAttribute="top" secondItem="NiG-O8-8Dq" secondAttribute="top" constant="150" id="OQe-Lz-iDi"/>
                         <constraint firstItem="8oX-kA-eXw" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="X8H-Zj-aeY"/>
+                        <constraint firstItem="lgg-vS-LUJ" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="bwQ-qj-hLs"/>
                         <constraint firstItem="Qgc-r6-PYL" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="ish-ZU-qW3"/>
+                        <constraint firstItem="pxD-QW-jJN" firstAttribute="top" secondItem="lgg-vS-LUJ" secondAttribute="bottom" constant="8" id="kUy-YO-7vz"/>
                         <constraint firstItem="bxm-ca-0ms" firstAttribute="top" secondItem="pxD-QW-jJN" secondAttribute="bottom" constant="8" id="mCl-Be-fQT"/>
+                        <constraint firstItem="yte-Ce-ksC" firstAttribute="top" secondItem="8oX-kA-eXw" secondAttribute="bottom" constant="5" id="pmu-Y0-mNk"/>
                         <constraint firstItem="kgQ-r4-5Fu" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="tUa-dp-BcS"/>
                         <constraint firstItem="XOp-mA-vhI" firstAttribute="centerX" secondItem="NiG-O8-8Dq" secondAttribute="centerX" id="tma-oe-t4a"/>
                         <constraint firstItem="Qgc-r6-PYL" firstAttribute="top" secondItem="0M5-da-X56" secondAttribute="bottom" constant="7" id="xkp-OL-jIj"/>
@@ -136,4 +146,7 @@
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="refreshImage" width="75" height="75"/>
+    </resources>
 </document>

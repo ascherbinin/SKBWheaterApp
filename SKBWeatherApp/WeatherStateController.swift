@@ -15,7 +15,6 @@ import UserNotifications
 
 protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather)
-    func notifyColdy()
 }
 
 class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificationCenterDelegate
@@ -57,8 +56,8 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                     print("JSON: \(json)")
                     
                     if let temp = json["main"]["temp"].float {
-                        //newWeather.temperature = temp
-                        newWeather.temperature = 10
+                        newWeather.temperature = temp
+                        //newWeather.temperature = 10
                     } else {
                         //Print the error
                         print(json["user"]["id"])
@@ -175,7 +174,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     
     
     func getLastWeather() -> Weather {
-        if let weathers = DBManager.instance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
+        if let weathers = DBManager.sharedInstance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
             return weathers[0]
         }
         else {
@@ -184,7 +183,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     }
     
     func save() {
-        DBManager.instance.saveContext()
+        DBManager.sharedInstance.saveContext()
     }
     
     // MARK: LocationServiceDelegate
@@ -197,8 +196,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
             handleComplete: {isColdy in
                 self.delegate?.didGetNewWeather(newWeather: self.getLastWeather())
                 if (isColdy) {
-                    self.showNotify()
-                    //self.delegate?.notifyColdy()
+                    self.createNotification()
                 }
                 self.isLoading = false
             }) {error in
@@ -233,7 +231,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     }
 
     
-    func showNotify ()
+    func createNotification ()
     {
         let content = UNMutableNotificationContent()
         let requestIdentifier = "coldNotification"
@@ -248,7 +246,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
         UNUserNotificationCenter.current().add(request) { (error:Error?) in
             
             if error != nil {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
         }
     }

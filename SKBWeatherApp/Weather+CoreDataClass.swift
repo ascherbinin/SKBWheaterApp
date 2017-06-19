@@ -15,6 +15,6 @@ public class Weather: NSManagedObject {
     convenience init()
     {
         // Создание нового объекта
-        self.init(entity: DBManager.instance.entityForName(entityName: "Weather"), insertInto: DBManager.instance.managedObjectContext)
+        self.init(entity: DBManager.sharedInstance.entityForName(entityName: "Weather"), insertInto: DBManager.sharedInstance.managedObjectContext)
     }
 }
