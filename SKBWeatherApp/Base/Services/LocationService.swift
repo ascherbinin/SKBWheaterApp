@@ -45,7 +45,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func startUpdatingLocation() {
         print("Starting Location Updates")
-        self.locationManager?.startUpdatingLocation()
+        self.locationManager?.requestLocation()
     }
     
     func stopUpdatingLocation() {

@@ -22,6 +22,8 @@
 		935DC3011EEF662600BB5163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935DC2FF1EEF662600BB5163 /* LaunchScreen.storyboard */; };
 		935DC30C1EEF662600BB5163 /* SKBWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DC30B1EEF662600BB5163 /* SKBWeatherAppTests.swift */; };
 		937075391EF75D71003AED40 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937075381EF75D71003AED40 /* LocationService.swift */; };
+		9370753B1EF778F4003AED40 /* LocalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370753A1EF778F4003AED40 /* LocalNotificationService.swift */; };
+		9370753D1EF7A211003AED40 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370753C1EF7A211003AED40 /* UIViewControllerExtensions.swift */; };
 		939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */; };
 		939B68021EEF7272006980C1 /* MainAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68011EEF7272006980C1 /* MainAppService.swift */; };
 		939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B68061EEF7302006980C1 /* WeatherViewController.swift */; };
@@ -62,6 +64,8 @@
 		935DC30B1EEF662600BB5163 /* SKBWeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBWeatherAppTests.swift; sourceTree = "<group>"; };
 		935DC30D1EEF662600BB5163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937075381EF75D71003AED40 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Base/Services/LocationService.swift; sourceTree = "<group>"; };
+		9370753A1EF778F4003AED40 /* LocalNotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotificationService.swift; path = Services/LocalNotificationService.swift; sourceTree = "<group>"; };
+		9370753C1EF7A211003AED40 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		939B67FE1EEF71C6006980C1 /* ServiceDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceDispatcher.swift; path = Utility/ServiceDispatcher.swift; sourceTree = "<group>"; };
 		939B68011EEF7272006980C1 /* MainAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainAppService.swift; path = Services/MainAppService.swift; sourceTree = "<group>"; };
 		939B68061EEF7302006980C1 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = Controllers/WeatherViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			children = (
 				933A8D241EEF97640051B3AC /* UIVIewExtensions.swift */,
 				932698D91EF2426700A20F13 /* DateExtensions.swift */,
+				9370753C1EF7A211003AED40 /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				939B68011EEF7272006980C1 /* MainAppService.swift */,
+				9370753A1EF778F4003AED40 /* LocalNotificationService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				939B680B1EEF8304006980C1 /* BackgroundView.swift in Sources */,
+				9370753D1EF7A211003AED40 /* UIViewControllerExtensions.swift in Sources */,
 				9316AF7B1EF221BA00190CC0 /* Weather+CoreDataClass.swift in Sources */,
 				933A8D271EEFA34D0051B3AC /* Colors.swift in Sources */,
 				9316AF7E1EF2228D00190CC0 /* DBManager.swift in Sources */,
@@ -461,6 +468,7 @@
 				9316AF6E1EF211CE00190CC0 /* URLs.swift in Sources */,
 				939B68081EEF7302006980C1 /* WeatherViewController.swift in Sources */,
 				9316AF7C1EF221BA00190CC0 /* Weather+CoreDataProperties.swift in Sources */,
+				9370753B1EF778F4003AED40 /* LocalNotificationService.swift in Sources */,
 				939B67FF1EEF71C6006980C1 /* ServiceDispatcher.swift in Sources */,
 				939B68021EEF7272006980C1 /* MainAppService.swift in Sources */,
 				935DC2F41EEF662600BB5163 /* AppDelegate.swift in Sources */,

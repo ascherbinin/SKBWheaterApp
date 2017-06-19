@@ -11,13 +11,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+import UserNotifications
 
 protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather)
     func notifyColdy()
 }
 
-class WeatherStateController: LocationServiceDelegate
+class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificationCenterDelegate
 {
     var delegate: WeatherStateProtocol?
     
@@ -42,8 +43,9 @@ class WeatherStateController: LocationServiceDelegate
     func getCurrentWeather(latitude: Double,
                            longitude: Double,
                            handleComplete:@escaping (_ isColdy: Bool)->(),
-                           handleError:@escaping ()->()) {
+                           handleError:@escaping (_ error: Error)->()) {
         isLoading = true;
+        UNUserNotificationCenter.current().delegate = self
         Alamofire.request(URLs().getWeatherByCoordRequestUrl(latitude: latitude, longitude: longitude), method: .get).validate().responseJSON {
                 response in
                 switch response.result {
@@ -55,7 +57,8 @@ class WeatherStateController: LocationServiceDelegate
                     print("JSON: \(json)")
                     
                     if let temp = json["main"]["temp"].float {
-                        newWeather.temperature = temp
+                        //newWeather.temperature = temp
+                        newWeather.temperature = 10
                     } else {
                         //Print the error
                         print(json["user"]["id"])
@@ -156,12 +159,10 @@ class WeatherStateController: LocationServiceDelegate
                         needNotify = true
                     }
                     self.save()
-                    self.isLoading = false
+                    
                     handleComplete(needNotify)
                 case .failure(let error):
-                    self.isLoading = false
-                    print(error)
-                    handleError()
+                    handleError(error)
                 }
         }
     }
@@ -196,20 +197,62 @@ class WeatherStateController: LocationServiceDelegate
             handleComplete: {isColdy in
                 self.delegate?.didGetNewWeather(newWeather: self.getLastWeather())
                 if (isColdy) {
-                    self.delegate?.notifyColdy()
+                    self.showNotify()
+                    //self.delegate?.notifyColdy()
                 }
-            }) { 
-                print ("Error");
+                self.isLoading = false
+            }) {error in
+                print (error)
+                self.isLoading = false
+                
             }
         }
     }
     
     func tracingLocationDidFailWithError(error: Error) {
-        print ("error: \(error)");
+       print ("error: \(error)");
     }
     
     func startGetLocation(){
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "notification":
+            print("Action First Tapped")
+        default:
+            break
+        }
+        completionHandler()
+    }
+
+    
+    func showNotify ()
+    {
+        let content = UNMutableNotificationContent()
+        let requestIdentifier = "coldNotification"
+        content.title = "Похолодало!"
+        content.body = "Нужно одеться теплее!"
+        content.categoryIdentifier = "notifyCategory"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error:Error?) in
+            
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
+    
+    
 }
