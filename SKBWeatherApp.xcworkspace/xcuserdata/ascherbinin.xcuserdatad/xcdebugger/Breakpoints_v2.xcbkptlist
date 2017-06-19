@@ -25,13 +25,27 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SKBWeatherApp/WeatherStateController.swift"
-            timestampString = "519531262.890987"
+            filePath = "SKBWeatherApp/Base/Services/LocationService.swift"
+            timestampString = "519533240.799653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "getLastWeather()"
+            startingLineNumber = "104"
+            endingLineNumber = "104">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SKBWeatherApp/WeatherStateController.swift"
+            timestampString = "519534202.106133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "getCurrentWeather(latitude:longitude:handleComplete:handleError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -78,5 +78,9 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
          updateCurrentWeather(weather: (stateController?.currentWeather)!)
          aiLoading.stopAnimating()
     }
+    
+    func notifyColdy() {
+        print ("coldy coldy coldy")
+    }
 
 }

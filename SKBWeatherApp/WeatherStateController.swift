@@ -14,6 +14,7 @@ import CoreLocation
 
 protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather)
+    func notifyColdy()
 }
 
 class WeatherStateController: LocationServiceDelegate
@@ -40,7 +41,7 @@ class WeatherStateController: LocationServiceDelegate
     
     func getCurrentWeather(latitude: Double,
                            longitude: Double,
-                           handleComplete:@escaping ()->(),
+                           handleComplete:@escaping (_ isColdy: Bool)->(),
                            handleError:@escaping ()->()) {
         isLoading = true;
         Alamofire.request(URLs().getWeatherByCoordRequestUrl(latitude: latitude, longitude: longitude), method: .get).validate().responseJSON {
@@ -48,7 +49,9 @@ class WeatherStateController: LocationServiceDelegate
                 switch response.result {
                 case .success(let value):
                     let newWeather = Weather()
+                    var needNotify = false
                     let json = JSON(value)
+                    let lastTemp = self.getLastWeather().temperature
                     print("JSON: \(json)")
                     
                     if let temp = json["main"]["temp"].float {
@@ -147,10 +150,14 @@ class WeatherStateController: LocationServiceDelegate
                     }
                     
                     newWeather.dt = NSDate()
-
+                    print ("NEW TEMP: \(newWeather.temperature) LAST TEMP: \(lastTemp) DIF \(lastTemp - newWeather.temperature)")
+                    if (lastTemp - newWeather.temperature >= 3)
+                    {
+                        needNotify = true
+                    }
                     self.save()
                     self.isLoading = false
-                    handleComplete()
+                    handleComplete(needNotify)
                 case .failure(let error):
                     self.isLoading = false
                     print(error)
@@ -186,8 +193,11 @@ class WeatherStateController: LocationServiceDelegate
         if (!isLoading) {
             isLoading = true;
             getCurrentWeather(latitude: curLocation.coordinate.latitude, longitude: curLocation.coordinate.longitude,
-            handleComplete: {
+            handleComplete: {isColdy in
                 self.delegate?.didGetNewWeather(newWeather: self.getLastWeather())
+                if (isColdy) {
+                    self.delegate?.notifyColdy()
+                }
             }) { 
                 print ("Error");
             }
