@@ -13,7 +13,9 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let serviceDispatcher = ServiceDispatcher(services: [MainAppService()])
+    let serviceDispatcher = ServiceDispatcher(services: [MainAppService(),
+                                                         LocationService()
+        ])
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let appDir = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)

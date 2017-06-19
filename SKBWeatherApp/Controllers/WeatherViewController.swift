@@ -31,9 +31,8 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     {
         super.viewDidLoad()
         setupNavigationControllerController()
-        stateController?.delegate = self
-        stateController?.startGetLocation()
         updateCurrentWeather(weather: (stateController?.currentWeather)!)
+        stateController?.getCurrentLocation()
     }
     
     override func didReceiveMemoryWarning()

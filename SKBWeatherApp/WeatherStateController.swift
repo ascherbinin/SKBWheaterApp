@@ -16,7 +16,7 @@ protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather)
 }
 
-class WeatherStateController: LocationServiceDelegate
+class WeatherStateController
 {
     var delegate: WeatherStateProtocol?
     
@@ -179,27 +179,44 @@ class WeatherStateController: LocationServiceDelegate
         DBManager.instance.saveContext()
     }
     
-    // MARK: LocationServiceDelegate
-    
-    func tracingLocation(curLocation: CLLocation) {
-        print ("Location: Long: \(curLocation.coordinate.longitude) Lat: \(curLocation.coordinate.latitude)")
+    func getCurrentLocation()
+    {
         if (!isLoading) {
             isLoading = true;
-            getCurrentWeather(latitude: curLocation.coordinate.latitude, longitude: curLocation.coordinate.longitude,
-            handleComplete: {
-                self.delegate?.didGetNewWeather(newWeather: self.getLastWeather())
-            }) { 
-                print ("Error");
+            if let result = UserDefaults.standard.value(forKey: "locDict") {
+                print(result)
             }
+//            getCurrentWeather(latitude: locationDict["lat"],
+//            longitude: locationDict["lon"],
+//            handleComplete: {
+//                self.delegate?.didGetNewWeather(newWeather: self.getLastWeather())
+//            }) {
+//                print ("Error");
+//            }
         }
     }
     
-    func tracingLocationDidFailWithError(error: Error) {
-        print ("error: \(error)");
-    }
-    
-    func startGetLocation(){
-        LocationService.sharedInstance.delegate = self
-        LocationService.sharedInstance.startUpdatingLocation()
-    }
+//    // MARK: LocationServiceDelegate
+//    
+//    func tracingLocation(curLocation: CLLocation) {
+//        print ("Location: Long: \(curLocation.coordinate.longitude) Lat: \(curLocation.coordinate.latitude)")
+//        if (!isLoading) {
+//            isLoading = true;
+//            getCurrentWeather(latitude: curLocation.coordinate.latitude, longitude: curLocation.coordinate.longitude,
+//            handleComplete: {
+//                self.delegate?.didGetNewWeather(newWeather: self.getLastWeather())
+//            }) { 
+//                print ("Error");
+//            }
+//        }
+//    }
+//    
+//    func tracingLocationDidFailWithError(error: Error) {
+//        print ("error: \(error)");
+//    }
+//    
+//    func startGetLocation(){
+//        LocationService.sharedInstance.delegate = self
+//        LocationService.sharedInstance.startUpdatingLocation()
+//    }
 }
