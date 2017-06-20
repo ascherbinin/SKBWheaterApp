@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 import UserNotifications
+import CoreData
 
 protocol WeatherStateProtocol {
     func didGetNewWeather(newWeather: Weather?)
@@ -158,11 +159,9 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                     }
                     
                     newWeather.dt = NSDate()
-                    print ("NEW TEMP: \(newWeather.temperature) LAST TEMP: \(lastTemp ?? 0)")
                     if (lastTemp != nil &&
                         lastTemp! - newWeather.temperature >= 3)
                     {
-                        print ("DIF \(lastTemp! - newWeather.temperature)")
                         needNotify = true
                     }
                     self.save()
@@ -179,7 +178,11 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
         // Direct add item to db
     }
     
-    
+    func deleteObjectAtPath(indexPath: IndexPath) {
+        let object = frc.object(at: indexPath) as! NSManagedObject
+        frc.managedObjectContext.delete(object)
+        DBManager.sharedInstance.saveContext()
+    }
     
     func getLastWeather() -> Weather? {
         if let weathers = DBManager.sharedInstance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
