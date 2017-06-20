@@ -1,0 +1,29 @@
+/*
+ Localizable.strings
+ SKBWeatherApp
+ 
+ Created by Андрей Щербинин on 20.06.17.
+ Copyright © 2017 AS. All rights reserved.
+ */
+
+
+// MARK: Section Weather View Controller
+
+"DATE_FIELD"            = "Today:";
+"WIND_FIELD"            = "wind";
+"WIND_VALUE_FIELD"      = "m/sec";
+"CLOUDS_FIELD"          = "clouds";
+
+
+// MARK: Section Weather List View Controller
+
+"TITLE_WEATHER_LIST"    = "WEATHER";
+
+// MARK: Section Error Messages
+
+"ERROR_GEOLOCATION_MESSAGE" = "Cant get geolocation:";
+
+// MARK: Section Notify Messages and Titles
+
+"NOTIFY_COLDY_TITLE" = "It got colder!";
+"NOTIFY_COLDY_MESSAGE" = "You need to dress warmer!";

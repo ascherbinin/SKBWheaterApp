@@ -31,6 +31,7 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     {
         super.viewDidLoad()
         setupNavigationControllerController()
+        localize()
         stateController?.delegate = self
         stateController?.startGetLocation()
         if (stateController?.currentWeather) != nil {
@@ -71,20 +72,22 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     
     func updateCurrentWeather(weather: Weather) -> Void {
         if let date = weather.dt?.customFormatted {
-            lblDate.text = "Today: \(date)"
+            lblDate.text = loc("DATE_FIELD") + " \(date)"
         }
         
         lblTemp.fadeTransitionWithText(0.5, text: "\(Int16(weather.temperature)) °C")
         lblCurrentLocation.text = weather.cityName! + ", " + weather.countryName!
         lblWeatherTitle.text = weather.weatherTitle
-        lblWindSpeed.text = "\(weather.windSpeed) m/sec"
+        lblWindSpeed.text = "\(weather.windSpeed) " + loc("WIND_VALUE_FIELD")
         lblCloudsPercent.text = "\(weather.clouds) %"
         ivWeatherIcon.af_setImage(withURL: URL(string: URLs().getImageURL() + "\(weather.iconName!).png")!)
     }
     
-    func didGetNewWeather(newWeather: Weather) {
-         updateCurrentWeather(weather: (stateController?.currentWeather)!)
-         aiLoading.stopAnimating()
+    func didGetNewWeather(newWeather: Weather?) {
+        if (newWeather != nil) {
+            updateCurrentWeather(weather: (stateController?.currentWeather)!)
+            aiLoading.stopAnimating()
+        }
     }
     
     func errorRequest(errorMsg: String) {
@@ -96,5 +99,11 @@ class WeatherViewController: UIViewController, WeatherStateProtocol
     @IBAction func onClickRefresh(_ sender: Any) {
         aiLoading.startAnimating()
         stateController?.startGetLocation()
+    }
+    
+    func localize()
+    {
+        lblWind.text = loc("WIND_FIELD")
+        lblClouds.text = loc("CLOUDS_FIELD")
     }
 }

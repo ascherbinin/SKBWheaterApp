@@ -14,7 +14,7 @@ import CoreLocation
 import UserNotifications
 
 protocol WeatherStateProtocol {
-    func didGetNewWeather(newWeather: Weather)
+    func didGetNewWeather(newWeather: Weather?)
     func errorRequest(errorMsg: String)
 }
 
@@ -23,7 +23,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     var delegate: WeatherStateProtocol?
     var frc = DBManager.sharedInstance.fetchedResultsController(entityName: "Weather", keyForSort: "dt", ascending: false)
     
-    var currentWeather: Weather {
+    var currentWeather: Weather? {
         get {
             return getLastWeather()
         }
@@ -58,12 +58,12 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                     let newWeather = Weather()
                     var needNotify = false
                     let json = JSON(value)
-                    let lastTemp = self.getLastWeather().temperature
+                    let lastTemp = self.getLastWeather()?.temperature
                     print("JSON: \(json)")
                     
                     if let temp = json["main"]["temp"].float {
-                        //newWeather.temperature = temp
-                        newWeather.temperature = 10
+                        newWeather.temperature = temp
+                        //newWeather.temperature = 10
                     } else {
                         //Print the error
                         print(json["user"]["id"])
@@ -158,9 +158,11 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
                     }
                     
                     newWeather.dt = NSDate()
-                    print ("NEW TEMP: \(newWeather.temperature) LAST TEMP: \(lastTemp) DIF \(lastTemp - newWeather.temperature)")
-                    if (lastTemp - newWeather.temperature >= 3)
+                    print ("NEW TEMP: \(newWeather.temperature) LAST TEMP: \(lastTemp ?? 0)")
+                    if (lastTemp != nil &&
+                        lastTemp! - newWeather.temperature >= 3)
                     {
+                        print ("DIF \(lastTemp! - newWeather.temperature)")
                         needNotify = true
                     }
                     self.save()
@@ -179,12 +181,12 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     
     
     
-    func getLastWeather() -> Weather {
+    func getLastWeather() -> Weather? {
         if let weathers = DBManager.sharedInstance.fetchRequest(entityName: "Weather", keyForSort: "dt") as? [Weather] {
-            return weathers.count > 0 ? weathers[0] : Weather()
+            return weathers.count > 0 ? weathers[0] : nil
         }
         else {
-           return Weather()
+           return nil
         }
     }
     
@@ -195,7 +197,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     // MARK: LocationServiceDelegate
     
     func tracingLocation(curLocation: CLLocation) {
-        print ("Location: Long: \(curLocation.coordinate.longitude) Lat: \(curLocation.coordinate.latitude)")
+        //print ("Location: Long: \(curLocation.coordinate.longitude) Lat: \(curLocation.coordinate.latitude)")
         if (!isLoading) {
             isLoading = true;
             getCurrentWeather(latitude: curLocation.coordinate.latitude, longitude: curLocation.coordinate.longitude,
@@ -213,7 +215,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
     }
     
     func tracingLocationDidFailWithError(error: Error) {
-        self.delegate?.errorRequest(errorMsg: "Не удалось получить геопозицию: \(error.localizedDescription)")
+        self.delegate?.errorRequest(errorMsg: loc("ERROR_GEOLOCATION_MESSAGE") + " \(error.localizedDescription)")
     }
     
     func startGetLocation(){
@@ -243,8 +245,8 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
         if #available(iOS 10.0, *) {
             let content = UNMutableNotificationContent()
             let requestIdentifier = "coldNotification"
-            content.title = "Похолодало!"
-            content.body = "Нужно одеться теплее!"
+            content.title = loc("NOTIFY_COLDY_TITLE")
+            content.body = loc("NOTIFY_COLDY_MESSAGE")
             content.categoryIdentifier = "notifyCategory"
             content.sound = UNNotificationSound.default()
             
@@ -260,7 +262,7 @@ class WeatherStateController: NSObject, LocationServiceDelegate, UNUserNotificat
         } else {
             let localNotification = UILocalNotification()
             localNotification.fireDate = Date(timeIntervalSinceNow: 1)
-            localNotification.alertBody = "Нужно одеться теплее!"
+            localNotification.alertBody = loc("NOTIFY_COLDY_MESSAGE")
             localNotification.timeZone = NSTimeZone.default
             
             //set the notification

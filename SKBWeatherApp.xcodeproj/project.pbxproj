@@ -37,6 +37,7 @@
 		93C500791EF8425B0068E153 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C500781EF8425B0068E153 /* Common.swift */; };
 		93C5007D1EF846E60068E153 /* WeatherListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5007C1EF846E60068E153 /* WeatherListDataSource.swift */; };
 		93C5007F1EF847C60068E153 /* WeatherListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5007E1EF847C60068E153 /* WeatherListDelegate.swift */; };
+		93C500871EF8BF3F0068E153 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93C500891EF8BF3F0068E153 /* Localizable.strings */; };
 		A1D93F9A5F39038C3743DF55 /* Pods_SKBWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242D76A84EFC70603C082E62 /* Pods_SKBWeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,9 @@
 		93C500781EF8425B0068E153 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = Base/Common.swift; sourceTree = "<group>"; };
 		93C5007C1EF846E60068E153 /* WeatherListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherListDataSource.swift; path = DataSources/WeatherListDataSource.swift; sourceTree = "<group>"; };
 		93C5007E1EF847C60068E153 /* WeatherListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherListDelegate.swift; path = Delegates/WeatherListDelegate.swift; sourceTree = "<group>"; };
+		93C500861EF8BF020068E153 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		93C500881EF8BF3F0068E153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		93C5008A1EF8BF430068E153 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A0F34DDE4634CC298D7C7816 /* Pods-SKBWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		A548128EB7D16D8304168EBF /* Pods-SKBWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherApp/Pods-SKBWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E4C54466D72B25758C30A3 /* Pods-SKBWeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKBWeatherAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKBWeatherAppTests/Pods-SKBWeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 		935DC2F21EEF662600BB5163 /* SKBWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				93C500801EF8BBF90068E153 /* localize */,
 				937075441EF7B4E4003AED40 /* Cells */,
 				9316AF741EF2205600190CC0 /* DB */,
 				9316AF711EF21BAE00190CC0 /* Base */,
@@ -292,6 +297,14 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
+		93C500801EF8BBF90068E153 /* localize */ = {
+			isa = PBXGroup;
+			children = (
+				93C500891EF8BF3F0068E153 /* Localizable.strings */,
+			);
+			name = localize;
+			sourceTree = "<group>";
+		};
 		98C5E8C68AE2AD30FC183606 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +387,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 935DC2E71EEF662500BB5163;
 			productRefGroup = 935DC2F11EEF662600BB5163 /* Products */;
@@ -392,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				935DC3011EEF662600BB5163 /* LaunchScreen.storyboard in Resources */,
+				93C500871EF8BF3F0068E153 /* Localizable.strings in Resources */,
 				937075431EF7B4C8003AED40 /* WeathersListViewController.xib in Resources */,
 				939B68091EEF7302006980C1 /* WeatherViewController.xib in Resources */,
 				935DC2FE1EEF662600BB5163 /* Assets.xcassets in Resources */,
@@ -555,8 +570,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				935DC3001EEF662600BB5163 /* Base */,
+				93C500861EF8BF020068E153 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		93C500891EF8BF3F0068E153 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C500881EF8BF3F0068E153 /* en */,
+				93C5008A1EF8BF430068E153 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -566,6 +591,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -616,6 +642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -667,6 +694,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = home.SKBWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -682,6 +710,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = home.SKBWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

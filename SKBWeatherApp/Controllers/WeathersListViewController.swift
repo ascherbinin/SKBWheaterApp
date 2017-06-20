@@ -19,6 +19,9 @@ class WeathersListViewController: UITableViewController, NSFetchedResultsControl
         super.viewDidLoad()
         tableView.backgroundView = BackgroundView()
         tableView.register(UINib(nibName: WeatherCell.identifier, bundle: nil), forCellReuseIdentifier: WeatherCell.identifier)
+        
+        setupNavigationBar()
+        
         stateController?.frc.delegate = self
         do {
             try stateController?.frc.performFetch()
@@ -30,9 +33,7 @@ class WeathersListViewController: UITableViewController, NSFetchedResultsControl
             tableViewDataSource = WeatherListDataSource(tableView: tableView, stateController: stateController)
             tableViewDelegate = WeatherListDelegate(tableView: tableView, stateController: stateController)
         }
-        
-        
-        self.title = "Погодка!"
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,5 +78,14 @@ class WeathersListViewController: UITableViewController, NSFetchedResultsControl
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+    }
+    
+    func setupNavigationBar ()
+    {   
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.white,
+                                       NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : Any]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.title = loc("TITLE_WEATHER_LIST")
     }
 }
