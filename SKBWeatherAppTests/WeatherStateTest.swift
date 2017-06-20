@@ -12,7 +12,6 @@ import XCTest
 class WeatherStateTest: XCTestCase {
     
     var stateController: WeatherStateController!
-    
     override func setUp() {
         super.setUp()
         stateController = WeatherStateController()
@@ -31,13 +30,7 @@ class WeatherStateTest: XCTestCase {
     
     func testGetCurrentWeather()
     {
-        var weater = stateController.currentWeather
-        XCTAssertNil(weater, "Пустое значение текущей погоды")
-        stateController.startGetLocation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-            weater = self.stateController.currentWeather
-            XCTAssertNotNil(weater, "Получено значение текущей погоды")
-        })
-        
+        let weather = stateController.currentWeather
+        XCTAssertNil(weather, "Пустое значение текущей погоды")
     }
 }
