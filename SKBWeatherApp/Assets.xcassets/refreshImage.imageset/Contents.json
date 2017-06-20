@@ -2,7 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "refreshWhite.pdf"
+      "filename" : "icons8-Refresh-64.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "icons8-Refresh-128.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "icons8-Refresh-256.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

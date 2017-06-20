@@ -100,7 +100,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yte-Ce-ksC">
                             <rect key="frame" x="164" y="468" width="85" height="85"/>
-                            <state key="normal" image="refreshImages"/>
+                            <state key="normal" image="refreshImage"/>
                             <connections>
                                 <action selector="onClickRefresh:" destination="-1" eventType="touchUpInside" id="VfI-G3-Jjd"/>
                             </connections>
@@ -166,6 +166,6 @@
         </view>
     </objects>
     <resources>
-        <image name="refreshImages" width="85" height="85"/>
+        <image name="refreshImage" width="85" height="85"/>
     </resources>
 </document>
