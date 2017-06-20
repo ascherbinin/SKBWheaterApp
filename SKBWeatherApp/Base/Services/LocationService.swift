@@ -44,12 +44,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     
     func startUpdatingLocation() {
-        print("Starting Location Updates")
+        //print("Starting Location Updates")
         self.locationManager?.requestLocation()
     }
     
     func stopUpdatingLocation() {
-        print("Stop Location Updates")
+        //print("Stop Location Updates")
         self.locationManager?.stopUpdatingLocation()
     }
     
